@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turning Points — Ideological Empires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #FAF6F1;
+  --bg-warm: #F5EDE3;
+  --text: #2C1810;
+  --text-muted: #6B5344;
+  --text-light: #8B7766;
+  --ember: #C4572A;
+  --flame: #D84315;
+  --deep: #8B2500;
+  --gold: #B8860B;
+  --brown: #3E2723;
+  --cap-blue: #1A5276;
+  --cap-blue-lt: #D4E6F1;
+  --com-red: #922B21;
+  --com-red-lt: #F2D7D5;
+  --belief-green: #2E5E3F;
+  --belief-green-lt: #D5E8D4;
+  --border: #D7CCC8;
+  --white: #FFFFFF;
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --max-width: 900px;
+  --section-gap: 3.5rem;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,246,241,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 1.5rem;
+}
+.nav-inner {
+  max-width: var(--max-width); margin: 0 auto;
+  display: flex; align-items: center; gap: 1.5rem; overflow-x: auto;
+}
+.nav-brand {
+  font-family: var(--font-display); font-weight: 700; font-size: 0.85rem;
+  color: var(--ember); white-space: nowrap; letter-spacing: -0.02em;
+}
+.nav-links { display: flex; gap: 0.2rem; list-style: none; }
+.nav-links a {
+  font-family: var(--font-display); font-size: 0.72rem; font-weight: 500;
+  color: var(--text-muted); text-decoration: none; padding: 0.35rem 0.65rem;
+  border-radius: 6px; white-space: nowrap; transition: all 0.2s;
+}
+.nav-links a:hover { background: var(--bg-warm); color: var(--text); }
+
+/* ── HERO ── */
+.hero {
+  position: relative; padding: 5rem 1.5rem 4rem; overflow: hidden;
+  background: linear-gradient(160deg, #3E2723 0%, #5D4037 40%, #795548 70%, #A1887F 100%);
+  color: var(--white);
+}
+.hero::before {
+  content: ''; position: absolute; top: -50%; right: -30%; width: 80%; height: 200%;
+  background: radial-gradient(ellipse, rgba(196,87,42,0.25) 0%, transparent 70%);
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--flame), var(--gold), var(--ember));
+}
+.hero-inner { max-width: var(--max-width); margin: 0 auto; position: relative; }
+.hero-eyebrow {
+  font-family: var(--font-display); font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 0.75rem;
+}
+.hero h1 {
+  font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1rem;
+}
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero-subtitle { font-size: 1.1rem; line-height: 1.6; color: rgba(255,255,255,0.85); max-width: 600px; }
+
+/* ── CONTENT ── */
+.content { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+section { padding-top: var(--section-gap); padding-bottom: 1rem; }
+.section-label {
+  font-family: var(--font-display); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem;
+}
+h2 {
+  font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
+  letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 1rem;
+}
+h3 {
+  font-family: var(--font-display); font-size: 1.15rem; font-weight: 600;
+  line-height: 1.3; margin-bottom: 0.6rem;
+}
+p { margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+
+.divider { height: 1px; background: var(--border); margin: 2.5rem 0; }
+
+/* ── BRIDGE BANNER ── */
+.bridge-banner {
+  background: var(--bg-warm); border-left: 4px solid var(--ember);
+  padding: 1.5rem; border-radius: 0 8px 8px 0; margin: 2rem 0;
+}
+.bridge-banner strong { color: var(--ember); }
+
+/* ── CHARACTER CARDS (Clickable) ── */
+.character-row {
+  display: flex; gap: 2rem; justify-content: center; margin: 2.5rem 0;
+  flex-wrap: wrap;
+}
+
+.character-card {
+  display: flex; flex-direction: column; align-items: center;
+  cursor: pointer; transition: transform 0.2s; user-select: none;
+  width: 280px;
+}
+.character-card:hover { transform: translateY(-4px); }
+.character-card.active { transform: translateY(-2px); }
+
+.character-avatar {
+  width: 180px; height: 220px; position: relative;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+  transition: filter 0.2s;
+}
+.character-card:hover .character-avatar {
+  filter: drop-shadow(0 6px 20px rgba(0,0,0,0.2));
+}
+
+.character-name {
+  font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+  text-align: center; margin-bottom: 0.2rem;
+}
+.character-subtitle {
+  font-family: var(--font-display); font-size: 0.75rem; font-weight: 500;
+  color: var(--text-muted); text-align: center;
+}
+.character-tap {
+  font-family: var(--font-display); font-size: 0.65rem; font-weight: 600;
+  color: var(--ember); margin-top: 0.4rem;
+  letter-spacing: 0.05em; opacity: 0.8;
+  animation: pulse 2s ease-in-out infinite;
+}
+.character-card.active .character-tap { display: none; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.character-expand {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s;
+  opacity: 0; width: 100%;
+}
+.character-card.active .character-expand {
+  max-height: 800px; opacity: 1;
+}
+.character-expand-inner {
+  margin-top: 1rem; padding: 1.5rem;
+  border-radius: 10px; border: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+
+/* ── SYSTEM EXPAND PANELS ── */
+.system-expand-inner--cap {
+  background: var(--cap-blue-lt);
+  border-color: rgba(26,82,118,0.2);
+}
+.system-expand-inner--com {
+  background: var(--com-red-lt);
+  border-color: rgba(146,43,33,0.2);
+}
+.system-expand-inner--cap h4 { color: var(--cap-blue); }
+.system-expand-inner--com h4 { color: var(--com-red); }
+.system-expand-inner h4 {
+  font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.75rem;
+}
+.sys-detail { margin-bottom: 0.5rem; font-size: 0.92rem; }
+.sys-detail strong { font-weight: 600; }
+.sys-note {
+  font-size: 0.85rem; font-style: italic; color: var(--text-muted);
+  margin-top: 0.75rem; padding-top: 0.75rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ── COUNTRY FLAGS ── */
+.country-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  margin: 2rem 0;
+}
+@media (max-width: 640px) { .country-row { grid-template-columns: repeat(2, 1fr); } }
+
+.country-btn {
+  display: flex; flex-direction: column; align-items: center;
+  cursor: pointer; padding: 1.25rem 0.75rem;
+  border-radius: 12px; border: 2px solid var(--border);
+  background: var(--white); transition: all 0.2s; user-select: none;
+}
+.country-btn:hover { border-color: var(--ember); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.country-btn.active { border-color: var(--ember); background: var(--bg-warm); }
+
+.country-flag {
+  width: 56px; height: 56px; border-radius: 50%; margin-bottom: 0.5rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+.country-btn-name {
+  font-family: var(--font-display); font-size: 0.82rem; font-weight: 600;
+}
+.country-btn-tap {
+  font-family: var(--font-display); font-size: 0.6rem; color: var(--ember);
+  margin-top: 0.25rem; opacity: 0.7;
+}
+.country-btn.active .country-btn-tap { display: none; }
+
+.country-detail {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s, margin 0.3s;
+  opacity: 0; grid-column: 1 / -1; margin: 0;
+}
+.country-detail.active {
+  max-height: 300px; opacity: 1; margin: 0.5rem 0;
+}
+.country-detail-inner {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.5rem;
+}
+.country-belief-quote {
+  font-style: italic; font-size: 1.05rem; color: var(--text);
+  padding-left: 0.75rem; border-left: 3px solid var(--gold); margin-bottom: 0.75rem;
+}
+.country-impact { font-size: 0.92rem; color: var(--text-muted); }
+.country-impact strong { color: var(--text); }
+
+/* ── IDENTITY TAGS ── */
+.identity-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;
+}
+@media (max-width: 640px) { .identity-grid { grid-template-columns: 1fr; } }
+.identity-tag {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 1rem 1.25rem;
+}
+.identity-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.identity-label {
+  font-family: var(--font-display); font-size: 0.82rem; font-weight: 600; margin-bottom: 0.2rem;
+}
+.identity-belief-text { font-size: 0.88rem; color: var(--text-muted); font-style: italic; }
+
+/* ── REFLECTION ── */
+.reflection {
+  background: var(--white); border: 2px solid var(--gold);
+  border-radius: 12px; padding: 2rem; margin: 2rem 0;
+}
+.reflection h3 { color: var(--gold); margin-bottom: 1rem; }
+.reflection-q {
+  font-size: 1rem; font-style: italic; padding: 0.5rem 0;
+  border-bottom: 1px dotted var(--border);
+}
+.reflection-q:last-child { border-bottom: none; }
+
+/* ── PCQ ── */
+.pcq-explainer {
+  background: var(--belief-green-lt); border: 1px solid rgba(46,94,63,0.2);
+  border-radius: 10px; padding: 1.75rem; margin-bottom: 2rem;
+}
+.pcq-explainer h3 { color: var(--belief-green); }
+.pcq-columns {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.25rem 0;
+}
+@media (max-width: 640px) { .pcq-columns { grid-template-columns: 1fr; } }
+.pcq-col {
+  background: var(--white); border-radius: 8px; padding: 1.25rem;
+  border: 1px solid var(--border);
+}
+.pcq-col h4 { font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; }
+.pcq-col--pro h4 { color: #2E7D32; }
+.pcq-col--con h4 { color: #C62828; }
+.pcq-col--q h4 { color: var(--gold); }
+.pcq-col p { font-size: 0.88rem; color: var(--text-muted); }
+
+/* ── BAROMETER (full width) ── */
+.barometer-wrapper {
+  margin: 1.5rem 0; padding: 1.25rem 1.5rem;
+  background: var(--bg-warm); border-radius: 10px;
+}
+.barometer-wrapper h4 {
+  font-family: var(--font-display); font-size: 0.85rem; font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.barometer-desc {
+  font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;
+}
+.barometer-scale {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0; margin: 0.5rem 0; width: 100%;
+}
+.barometer-dot {
+  flex: 1; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 0.85rem; font-weight: 600;
+  color: var(--text-muted); cursor: pointer;
+  border: 2px solid var(--border); background: var(--white);
+  transition: all 0.2s;
+}
+.barometer-dot:first-child { border-radius: 24px 0 0 24px; }
+.barometer-dot:last-child { border-radius: 0 24px 24px 0; }
+.barometer-dot:hover { background: var(--bg-warm); border-color: var(--ember); color: var(--ember); }
+.barometer-dot.selected {
+  background: var(--ember); border-color: var(--ember); color: var(--white);
+}
+.barometer-labels {
+  display: flex; justify-content: space-between;
+  font-family: var(--font-display); font-size: 0.7rem; color: var(--text-light);
+  margin-top: 0.3rem;
+}
+
+/* ── WORKED EXAMPLE ── */
+.example-box {
+  background: var(--white); border: 2px solid var(--border);
+  border-radius: 12px; padding: 2rem; margin: 2rem 0; position: relative;
+}
+.example-box::before {
+  content: 'WORKED EXAMPLE'; position: absolute; top: -0.6rem; left: 1.5rem;
+  font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.12em; color: var(--white); background: var(--ember);
+  padding: 0.15rem 0.6rem; border-radius: 4px;
+}
+.example-perspective {
+  font-family: var(--font-display); font-size: 0.9rem; font-weight: 600;
+  color: var(--deep); margin-bottom: 1rem;
+}
+.example-pcq-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1rem;
+}
+@media (max-width: 640px) { .example-pcq-grid { grid-template-columns: 1fr; } }
+.example-pcq-cell { padding: 1rem; border-radius: 6px; font-size: 0.88rem; line-height: 1.55; }
+.example-pcq-cell--pro { background: #E8F5E9; }
+.example-pcq-cell--con { background: #FFEBEE; }
+.example-pcq-cell--q { background: #FFF8E1; }
+.example-pcq-cell strong {
+  display: block; font-family: var(--font-display); font-size: 0.75rem;
+  font-weight: 700; margin-bottom: 0.3rem;
+}
+.example-barometer-result {
+  font-size: 0.9rem; padding: 0.75rem 1rem; background: var(--bg-warm); border-radius: 6px;
+}
+.example-barometer-result strong { color: var(--ember); }
+
+/* ── PERSPECTIVE CHARACTER CARDS ── */
+.perspective-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 2rem 0;
+}
+@media (max-width: 700px) { .perspective-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .perspective-grid { grid-template-columns: 1fr; } }
+
+.persp-card {
+  display: flex; flex-direction: column; align-items: center;
+  cursor: pointer; padding: 1.25rem 1rem;
+  border-radius: 12px; border: 2px solid var(--border);
+  background: var(--white); transition: all 0.25s; user-select: none;
+}
+.persp-card:hover { border-color: var(--ember); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+.persp-card.active { border-color: var(--ember); background: var(--bg-warm); }
+
+.persp-avatar {
+  width: 100px; height: 120px; margin-bottom: 0.6rem;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
+}
+.persp-name {
+  font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
+  text-align: center; margin-bottom: 0.15rem;
+}
+.persp-era {
+  font-family: var(--font-display); font-size: 0.65rem; font-weight: 500;
+  color: var(--gold); letter-spacing: 0.05em;
+}
+.persp-tap {
+  font-family: var(--font-display); font-size: 0.6rem; color: var(--ember);
+  margin-top: 0.3rem; animation: pulse 2s ease-in-out infinite;
+}
+.persp-card.active .persp-tap { display: none; }
+
+.persp-expand {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s;
+  opacity: 0; width: 100%;
+}
+.persp-card.active .persp-expand { max-height: 400px; opacity: 1; }
+.persp-expand-inner {
+  margin-top: 0.75rem; padding: 1rem; background: var(--bg);
+  border-radius: 8px; font-size: 0.85rem; color: var(--text-muted);
+  border: 1px dashed var(--border);
+}
+.persp-expand-inner strong { color: var(--text); display: block; margin-bottom: 0.3rem; font-family: var(--font-display); font-size: 0.78rem; }
+
+/* ── DEBATE ── */
+.debate-banner {
+  background: linear-gradient(135deg, #3E2723, #5D4037); color: var(--white);
+  border-radius: 12px; padding: 2.5rem; margin: 2rem 0; text-align: center;
+  position: relative; overflow: hidden;
+}
+.debate-banner::before {
+  content: ''; position: absolute; top: -50%; left: -20%; width: 60%; height: 200%;
+  background: radial-gradient(ellipse, rgba(196,87,42,0.15) 0%, transparent 60%);
+}
+.debate-banner h3 {
+  color: var(--white); font-size: 0.8rem; letter-spacing: 0.15em;
+  text-transform: uppercase; margin-bottom: 1rem; opacity: 0.7;
+}
+.debate-question {
+  font-family: var(--font-display); font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 600; line-height: 1.35; position: relative;
+}
+.debate-question em { font-style: normal; color: var(--gold); }
+
+.debate-prep { margin: 2rem 0; }
+.prep-step {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.5rem; margin-bottom: 1rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.prep-number {
+  width: 32px; height: 32px; background: var(--ember); color: var(--white);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; flex-shrink: 0;
+}
+.prep-content h4 { font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; }
+.prep-content p { font-size: 0.92rem; color: var(--text-muted); }
+
+.debate-structure {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin: 1.5rem 0;
+}
+@media (max-width: 640px) { .debate-structure { grid-template-columns: 1fr 1fr; } }
+.debate-phase {
+  text-align: center; padding: 1.25rem 0.75rem; border-radius: 8px; background: var(--bg-warm);
+}
+.debate-phase-icon { font-size: 1.3rem; margin-bottom: 0.4rem; }
+.debate-phase-name { font-family: var(--font-display); font-size: 0.78rem; font-weight: 600; }
+.debate-phase-detail { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+/* ── STORY FRAMING ── */
+.story-elements { margin: 1.5rem 0; counter-reset: story-step; }
+.story-element {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 0.75rem 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+  counter-increment: story-step;
+}
+.story-element:last-child { border-bottom: none; }
+.story-element::before {
+  content: counter(story-step);
+  font-family: var(--font-display); font-weight: 700; font-size: 0.8rem;
+  color: var(--white); background: var(--ember);
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+}
+.story-element-content strong {
+  font-family: var(--font-display); font-size: 0.88rem; font-weight: 600; display: block; margin-bottom: 0.15rem;
+}
+.story-element-content span { font-size: 0.88rem; color: var(--text-muted); }
+
+.level-cards { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 1.5rem 0; }
+.level-card {
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 1.5rem; background: var(--white);
+}
+.level-badge {
+  display: inline-block; font-family: var(--font-display); font-size: 0.7rem;
+  font-weight: 700; letter-spacing: 0.08em; padding: 0.2rem 0.6rem;
+  border-radius: 4px; margin-bottom: 0.75rem;
+}
+.level-card--a .level-badge { background: #E8F5E9; color: #2E7D32; }
+.level-card--b .level-badge { background: #FFF3E0; color: #E65100; }
+.level-card--c .level-badge { background: #FCE4EC; color: #AD1457; }
+.level-card h4 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
+.level-card p { font-size: 0.92rem; color: var(--text-muted); }
+
+/* ── CALLOUTS ── */
+.callout { border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0; }
+.callout--remember { background: #FFF8E1; border: 1px solid rgba(184,134,11,0.25); }
+.callout--remember h4 { color: var(--gold); }
+.callout--connect { background: var(--bg-warm); border-left: 4px solid var(--ember); border-radius: 0 10px 10px 0; }
+.callout--ai { background: #F3E5F5; border: 1px solid rgba(142,68,173,0.2); }
+.callout h4 { font-family: var(--font-display); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
+.callout p { font-size: 0.92rem; color: var(--text-muted); }
+
+.site-footer {
+  margin-top: var(--section-gap); padding: 2rem 1.5rem; background: #3E2723;
+  color: rgba(255,255,255,0.6); text-align: center;
+  font-family: var(--font-display); font-size: 0.75rem;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-brand">Turning Points</span>
+    <ul class="nav-links">
+      <li><a href="#big-idea">The Big Idea</a></li>
+      <li><a href="#systems">Two Systems</a></li>
+      <li><a href="#beliefs-action">Beliefs in Action</a></li>
+      <li><a href="#pcq">PCQ Tool</a></li>
+      <li><a href="#debate">The Debate</a></li>
+      <li><a href="#story">Story Framing</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Week 6 · Turning Points</div>
+    <h1>Ideological Empires:<br>The <em>Resource</em> of Belief</h1>
+    <p class="hero-subtitle">Industrialisation created unprecedented new resources. But it also created an unprecedented question: <strong>who should control them?</strong></p>
+  </div>
+</header>
+
+<main class="content">
+
+  <!-- ═══ BIG IDEA ═══ -->
+  <section id="big-idea">
+    <div class="section-label">The Big Idea</div>
+    <h2>Not all resources are physical</h2>
+    <p>Over the past few weeks, you've traced how resources shape turning points — coal powering the Industrial Revolution, food determining who survives a famine, infrastructure shaping who recovers from a disaster. But there's a category of resource you may not have considered yet.</p>
+    <p><strong>Beliefs</strong> are resources too. They determine who is allowed to take more, who is expected to sacrifice, which futures are considered acceptable, and what counts as "common sense."</p>
+    <div class="bridge-banner">
+      <p><strong>The connection to last week:</strong> Industrialisation created new physical resources — coal, factory labour, capital, urban land. The debate between capitalism and communism emerged as two competing answers to the question: <em>who should control these new resources?</em></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ TWO SYSTEMS ═══ -->
+  <section id="systems">
+    <div class="section-label">Two Systems</div>
+    <h2>Capitalism vs. Communism</h2>
+    <p>Both systems emerged as responses to industrialisation. Both claim to manage resources better. Click each figure to learn more.</p>
+
+    <div class="character-row">
+      <!-- UNCLE SAM -->
+      <div class="character-card" onclick="toggleCard(this)">
+        <div class="character-avatar">
+          <svg viewBox="0 0 180 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Uncle Sam -->
+            <defs>
+              <linearGradient id="sam-hat" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1A5276"/>
+                <stop offset="100%" stop-color="#154360"/>
+              </linearGradient>
+            </defs>
+            <!-- Body / Jacket -->
+            <path d="M55,145 L45,220 L135,220 L125,145 Q110,135 90,132 Q70,135 55,145Z" fill="#1A5276"/>
+            <!-- Lapels -->
+            <path d="M75,145 L90,165 L90,132 Z" fill="#D4E6F1" opacity="0.3"/>
+            <path d="M105,145 L90,165 L90,132 Z" fill="#D4E6F1" opacity="0.3"/>
+            <!-- Vest stripes -->
+            <rect x="80" y="145" width="3" height="40" fill="#C0392B" opacity="0.6"/>
+            <rect x="87" y="145" width="3" height="40" fill="#C0392B" opacity="0.6"/>
+            <rect x="94" y="145" width="3" height="40" fill="#C0392B" opacity="0.6"/>
+            <!-- White shirt -->
+            <path d="M82,132 L90,155 L98,132 Z" fill="#F5F5F5"/>
+            <!-- Bow tie -->
+            <path d="M82,140 L90,145 L98,140 L90,135 Z" fill="#C0392B"/>
+            <!-- Neck -->
+            <rect x="83" y="118" width="14" height="16" rx="5" fill="#F5CBA7"/>
+            <!-- Face -->
+            <ellipse cx="90" cy="100" rx="30" ry="32" fill="#F5CBA7"/>
+            <!-- Goatee -->
+            <path d="M82,112 Q90,125 98,112 Q95,118 90,120 Q85,118 82,112Z" fill="#D5D8DC"/>
+            <!-- Eyes -->
+            <ellipse cx="80" cy="95" rx="4" ry="3.5" fill="white"/>
+            <ellipse cx="100" cy="95" rx="4" ry="3.5" fill="white"/>
+            <circle cx="81" cy="95" r="2" fill="#2C3E50"/>
+            <circle cx="101" cy="95" r="2" fill="#2C3E50"/>
+            <!-- Eyebrows -->
+            <path d="M74,89 Q80,86 86,89" stroke="#7F8C8D" stroke-width="2" fill="none"/>
+            <path d="M94,89 Q100,86 106,89" stroke="#7F8C8D" stroke-width="2" fill="none"/>
+            <!-- Nose -->
+            <path d="M88,98 Q90,105 92,98" stroke="#D4A574" stroke-width="1.5" fill="none"/>
+            <!-- Mouth -->
+            <path d="M83,108 Q90,112 97,108" stroke="#A0522D" stroke-width="1.5" fill="none"/>
+            <!-- Hair (white, poking out from hat) -->
+            <path d="M60,82 Q65,75 70,82" fill="#D5D8DC"/>
+            <path d="M110,82 Q115,75 120,82" fill="#D5D8DC"/>
+            <!-- Top Hat -->
+            <rect x="62" y="30" width="56" height="48" rx="4" fill="url(#sam-hat)"/>
+            <rect x="52" y="74" width="76" height="10" rx="3" fill="#1A5276"/>
+            <!-- Hat band -->
+            <rect x="62" y="62" width="56" height="8" fill="#C0392B"/>
+            <!-- Stars on hat band -->
+            <text x="72" y="69" fill="white" font-size="7" font-family="sans-serif">★ ★ ★</text>
+            <!-- Hat stripes -->
+            <rect x="62" y="30" width="56" height="5" fill="#C0392B"/>
+            <rect x="62" y="40" width="56" height="5" fill="#C0392B"/>
+            <rect x="62" y="50" width="56" height="5" fill="#C0392B"/>
+            <!-- Pointing hand -->
+            <g transform="translate(130,155) rotate(-15)">
+              <rect x="0" y="0" width="30" height="12" rx="4" fill="#F5CBA7"/>
+              <rect x="25" y="-2" width="12" height="6" rx="2" fill="#F5CBA7"/>
+            </g>
+          </svg>
+        </div>
+        <div class="character-name" style="color:var(--cap-blue)">Capitalism</div>
+        <div class="character-subtitle">Market Economy</div>
+        <div class="character-tap">TAP TO EXPLORE →</div>
+        <div class="character-expand">
+          <div class="character-expand-inner system-expand-inner--cap">
+            <h4>Market Economy</h4>
+            <div class="sys-detail"><strong>Core idea:</strong> Resources are controlled by private individuals and groups. Competition drives efficiency and innovation.</div>
+            <div class="sys-detail"><strong>Goal:</strong> Economic growth through competition and profit.</div>
+            <div class="sys-detail"><strong>Examples:</strong> USA, Singapore, most of Western Europe.</div>
+            <div class="sys-note">Often creates innovation and wealth — but can deepen inequality. Who benefits when resources are allocated by the market?</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KARL MARX -->
+      <div class="character-card" onclick="toggleCard(this)">
+        <div class="character-avatar">
+          <svg viewBox="0 0 180 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Karl Marx caricature -->
+            <!-- Body / Dark coat -->
+            <path d="M50,148 L40,220 L140,220 L130,148 Q110,138 90,135 Q70,138 50,148Z" fill="#2C2C2C"/>
+            <!-- Coat lapels -->
+            <path d="M72,148 L90,170 L90,135 Z" fill="#3D3D3D"/>
+            <path d="M108,148 L90,170 L90,135 Z" fill="#3D3D3D"/>
+            <!-- White shirt -->
+            <path d="M82,135 L90,155 L98,135 Z" fill="#EEEEEE"/>
+            <!-- Neck -->
+            <rect x="82" y="118" width="16" height="18" rx="6" fill="#E8BEAB"/>
+            <!-- MASSIVE BEARD -->
+            <path d="M62,105 Q55,130 60,155 Q70,170 90,175 Q110,170 120,155 Q125,130 118,105 Q115,110 110,108 Q100,115 90,115 Q80,115 70,108 Q65,110 62,105Z" fill="#4A4A4A"/>
+            <path d="M65,110 Q60,135 65,155 Q75,165 90,168 Q105,165 115,155 Q120,135 115,110 Q110,115 100,118 Q90,120 80,118 Q70,115 65,110Z" fill="#5C5C5C"/>
+            <!-- Face -->
+            <ellipse cx="90" cy="95" rx="32" ry="30" fill="#E8BEAB"/>
+            <!-- Forehead wrinkles -->
+            <path d="M72,78 Q90,75 108,78" stroke="#C9A08A" stroke-width="0.8" fill="none"/>
+            <path d="M74,82 Q90,79 106,82" stroke="#C9A08A" stroke-width="0.8" fill="none"/>
+            <!-- Bushy eyebrows -->
+            <path d="M68,86 Q78,80 88,87" fill="#4A4A4A"/>
+            <path d="M92,87 Q102,80 112,86" fill="#4A4A4A"/>
+            <!-- Eyes (intense) -->
+            <ellipse cx="78" cy="91" rx="5" ry="4" fill="white"/>
+            <ellipse cx="102" cy="91" rx="5" ry="4" fill="white"/>
+            <circle cx="79" cy="91" r="2.5" fill="#2C1810"/>
+            <circle cx="103" cy="91" r="2.5" fill="#2C1810"/>
+            <circle cx="80" cy="90" r="0.8" fill="white"/>
+            <circle cx="104" cy="90" r="0.8" fill="white"/>
+            <!-- Nose (prominent) -->
+            <path d="M86,92 Q84,100 86,104 Q90,107 94,104 Q96,100 94,92" fill="#D4A08A"/>
+            <!-- Mouth (hidden in beard) -->
+            <path d="M82,108 Q90,111 98,108" stroke="#8B6A5A" stroke-width="1" fill="none"/>
+            <!-- Wild hair -->
+            <path d="M55,82 Q50,65 58,55 Q62,48 70,50 Q75,42 85,42 Q95,42 100,45 Q110,42 118,50 Q126,55 130,65 Q135,80 125,88" fill="#4A4A4A"/>
+            <path d="M58,78 Q52,60 62,52 Q70,45 82,45 Q95,44 105,48 Q115,45 122,55 Q130,65 128,82" fill="#5C5C5C"/>
+            <!-- Badge -->
+            <circle cx="70" cy="160" r="14" fill="#C0392B"/>
+            <circle cx="70" cy="160" r="12" fill="#E74C3C"/>
+            <!-- Hammer and sickle simplified -->
+            <text x="63" y="164" fill="#FFF" font-size="11" font-weight="bold" font-family="sans-serif">☭</text>
+          </svg>
+        </div>
+        <div class="character-name" style="color:var(--com-red)">Communism</div>
+        <div class="character-subtitle">Command Economy</div>
+        <div class="character-tap">TAP TO EXPLORE →</div>
+        <div class="character-expand">
+          <div class="character-expand-inner system-expand-inner--com">
+            <h4>Command Economy</h4>
+            <div class="sys-detail"><strong>Core idea:</strong> Resources are controlled by the state on behalf of the people. Central planning replaces competition.</div>
+            <div class="sys-detail"><strong>Goal:</strong> Equality and planned development for all.</div>
+            <div class="sys-detail"><strong>Examples:</strong> USSR (historical), North Korea, Cuba.</div>
+            <div class="sys-note">Can protect the vulnerable and reduce inequality — but often limits individual freedom. Who decides what "the people" need?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout--remember">
+      <h4>💡 Key Insight</h4>
+      <p>These aren't just economic systems — they're <strong>belief systems about who deserves what</strong>. Every policy, every budget, every trade deal reflects an underlying belief about how resources should flow. The question isn't just "which system works better?" — it's "better <em>for whom</em>?"</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ BELIEFS IN ACTION ═══ -->
+  <section id="beliefs-action">
+    <div class="section-label">Beliefs in Action</div>
+    <h2>How beliefs shape real resource decisions</h2>
+    <p>Abstract systems become concrete through the decisions societies make. Click each country to see how their beliefs shape resource outcomes:</p>
+
+    <div class="country-row" id="country-row">
+      <div class="country-btn" onclick="toggleCountry(this, 'bd')">
+        <div class="country-flag">🇧🇩</div>
+        <div class="country-btn-name">Bangladesh</div>
+        <div class="country-btn-tap">tap</div>
+      </div>
+      <div class="country-btn" onclick="toggleCountry(this, 'no')">
+        <div class="country-flag">🇳🇴</div>
+        <div class="country-btn-name">Norway</div>
+        <div class="country-btn-tap">tap</div>
+      </div>
+      <div class="country-btn" onclick="toggleCountry(this, 'cn')">
+        <div class="country-flag">🇨🇳</div>
+        <div class="country-btn-name">China</div>
+        <div class="country-btn-tap">tap</div>
+      </div>
+      <div class="country-btn" onclick="toggleCountry(this, 'us')">
+        <div class="country-flag">🇺🇸</div>
+        <div class="country-btn-name">USA</div>
+        <div class="country-btn-tap">tap</div>
+      </div>
+    </div>
+
+    <div class="country-detail" id="detail-bd">
+      <div class="country-detail-inner">
+        <div class="country-belief-quote">"We need cheap manufacturing to grow our economy."</div>
+        <div class="country-impact"><strong>Resource impact:</strong> Workers' rights sacrificed for economic growth. Garment factories produce cheap goods for global markets, but at what cost to the people inside them? The belief that growth comes first justifies conditions that would be unacceptable elsewhere.</div>
+      </div>
+    </div>
+    <div class="country-detail" id="detail-no">
+      <div class="country-detail-inner">
+        <div class="country-belief-quote">"Our oil wealth should fund education and health."</div>
+        <div class="country-impact"><strong>Resource impact:</strong> Oil profits redistributed through a welfare state. The Government Pension Fund invests for future generations rather than spending now. The belief that collective wellbeing matters more than individual wealth shapes every budget decision.</div>
+      </div>
+    </div>
+    <div class="country-detail" id="detail-cn">
+      <div class="country-detail-inner">
+        <div class="country-belief-quote">"The environment can wait — we need stability first."</div>
+        <div class="country-impact"><strong>Resource impact:</strong> Rapid development with significant environmental trade-offs. Centralised control enables fast infrastructure, but pollution and displacement follow. The belief that stability requires state control justifies sacrificing both environmental and individual freedoms.</div>
+      </div>
+    </div>
+    <div class="country-detail" id="detail-us">
+      <div class="country-detail-inner">
+        <div class="country-belief-quote">"Individual freedom comes first — even at the cost of inequality."</div>
+        <div class="country-impact"><strong>Resource impact:</strong> Healthcare, education, and safety vary enormously by wealth. Innovation thrives, but the safety net has wide gaps. The belief that freedom is the highest value makes inequality feel like a natural outcome rather than a policy choice.</div>
+      </div>
+    </div>
+
+    <h3>How identity shapes belief</h3>
+    <p>Your beliefs about resources often connect to your sense of identity:</p>
+    <div class="identity-grid">
+      <div class="identity-tag">
+        <div class="identity-icon" style="background:#E3F2FD;">🛒</div>
+        <div><div class="identity-label">Consumer Identity</div><div class="identity-belief-text">"Choice and competition are good. I deserve options."</div></div>
+      </div>
+      <div class="identity-tag">
+        <div class="identity-icon" style="background:#E8F5E9;">🌱</div>
+        <div><div class="identity-label">Eco Identity</div><div class="identity-belief-text">"Shared responsibility matters more than profit."</div></div>
+      </div>
+      <div class="identity-tag">
+        <div class="identity-icon" style="background:#FFF3E0;">🏴</div>
+        <div><div class="identity-label">Nationalist Identity</div><div class="identity-belief-text">"Our country comes first — even if others suffer."</div></div>
+      </div>
+      <div class="identity-tag">
+        <div class="identity-icon" style="background:#F3E5F5;">✊</div>
+        <div><div class="identity-label">Activist Identity</div><div class="identity-belief-text">"Equity matters — we must lift up the weakest."</div></div>
+      </div>
+    </div>
+
+    <div class="reflection">
+      <h3>Pause and reflect</h3>
+      <div class="reflection-q">Where do your beliefs about fairness and resources come from?</div>
+      <div class="reflection-q">How might your identity shape which system feels more "right" to you?</div>
+      <div class="reflection-q">Can you think of a time when two of these identities might conflict?</div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ PCQ ═══ -->
+  <section id="pcq">
+    <div class="section-label">Thinking Tool</div>
+    <h2>Pros, Cons &amp; Questions (PCQ)</h2>
+    <p>Before you can debate, you need to genuinely understand different viewpoints. The PCQ tool forces you to think <em>through</em> a perspective, not just <em>about</em> it.</p>
+
+    <div class="pcq-explainer">
+      <h3>How PCQ works</h3>
+      <p>For each perspective you adopt, you identify:</p>
+      <div class="pcq-columns">
+        <div class="pcq-col pcq-col--pro"><h4>✅ Pros</h4><p>What does this person see as the <strong>advantages</strong> of their system?</p></div>
+        <div class="pcq-col pcq-col--con"><h4>❌ Cons</h4><p>What problems or trade-offs does this person acknowledge — or might not want to?</p></div>
+        <div class="pcq-col pcq-col--q"><h4>❓ Questions</h4><p>What genuine questions or tensions does this viewpoint reveal?</p></div>
+      </div>
+
+      <div class="barometer-wrapper">
+        <h4>Extent Barometer (1–10)</h4>
+        <div class="barometer-desc">After your PCQ, rate: <strong>How much does this perspective value long-term societal stability?</strong> This isn't about whether you agree — it's about how much <em>they</em> prioritise stability.</div>
+        <div class="barometer-scale" id="barometer-demo">
+          <div class="barometer-dot" onclick="selectBarometer(this)">1</div>
+          <div class="barometer-dot" onclick="selectBarometer(this)">2</div>
+          <div class="barometer-dot" onclick="selectBarometer(this)">3</div>
+          <div class="barometer-dot" onclick="selectBarometer(this)">4</div>
+          <div class="barometer-dot" onclick="selectBarometer(this)">5</div>
+          <div class="barometer-dot" onclick="selectBarometer(this)">6</div>
+          <div class="barometer-dot" onclick="selectBarometer(this)">7</div>
+          <div class="barometer-dot" onclick="selectBarometer(this)">8</div>
+          <div class="barometer-dot" onclick="selectBarometer(this)">9</div>
+          <div class="barometer-dot" onclick="selectBarometer(this)">10</div>
+        </div>
+        <div class="barometer-labels">
+          <span>Stability is not a priority</span>
+          <span>Stability is the top priority</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-perspective">Perspective: American Government Official</div>
+      <div class="example-pcq-grid">
+        <div class="example-pcq-cell example-pcq-cell--pro"><strong>✅ Pros</strong>Regulation can prevent monopolies, protect the environment, and ensure worker safety. Stability comes from a mix of free enterprise and safeguards.</div>
+        <div class="example-pcq-cell example-pcq-cell--con"><strong>❌ Cons</strong>Over-regulation can stifle small business innovation. Political division weakens effective policymaking.</div>
+        <div class="example-pcq-cell example-pcq-cell--q"><strong>❓ Questions</strong>How do we find the right balance between freedom and regulation? How do we prevent corporate overreach?</div>
+      </div>
+      <div class="example-barometer-result"><strong>Extent Barometer: 7/10</strong> — Regulation is important, but balance is key. Business and other actors also have an important role.</div>
+    </div>
+
+    <h3>Your turn: Choose at least 2 perspectives</h3>
+    <p>Click each character to reveal what to think about. Complete a full PCQ for each on your task sheet.</p>
+
+    <div class="perspective-grid">
+      <!-- Chinese Official -->
+      <div class="persp-card" onclick="togglePersp(this)">
+        <div class="persp-avatar">
+          <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- Dark suit -->
+            <path d="M25,78 L18,120 L82,120 L75,78 Q62,72 50,70 Q38,72 25,78Z" fill="#1C2833"/>
+            <!-- White shirt -->
+            <path d="M42,70 L50,82 L58,70 Z" fill="#F5F5F5"/>
+            <!-- Red tie -->
+            <path d="M47,75 L50,95 L53,75 Z" fill="#E74C3C"/>
+            <!-- Red kerchief/pin -->
+            <circle cx="38" cy="82" r="5" fill="#C0392B"/>
+            <text x="35.5" y="84.5" fill="#FFD700" font-size="5" font-weight="bold" font-family="sans-serif">☆</text>
+            <!-- Neck -->
+            <rect x="44" y="58" width="12" height="13" rx="4" fill="#F0D5A8"/>
+            <!-- Face -->
+            <ellipse cx="50" cy="44" rx="22" ry="22" fill="#F0D5A8"/>
+            <!-- Hair (neat, dark) -->
+            <path d="M28,38 Q28,18 50,18 Q72,18 72,38 Q72,30 65,26 Q55,22 45,22 Q35,22 30,28 Q28,32 28,38Z" fill="#1C1C1C"/>
+            <!-- Eyes -->
+            <path d="M38,42 Q42,40 46,42" stroke="#1C1C1C" stroke-width="2" fill="none"/>
+            <path d="M54,42 Q58,40 62,42" stroke="#1C1C1C" stroke-width="2" fill="none"/>
+            <circle cx="42" cy="43" r="1.5" fill="#1C1C1C"/>
+            <circle cx="58" cy="43" r="1.5" fill="#1C1C1C"/>
+            <!-- Glasses -->
+            <rect x="35" y="38" width="14" height="10" rx="3" stroke="#5D6D7E" stroke-width="1.2" fill="none"/>
+            <rect x="51" y="38" width="14" height="10" rx="3" stroke="#5D6D7E" stroke-width="1.2" fill="none"/>
+            <line x1="49" y1="43" x2="51" y2="43" stroke="#5D6D7E" stroke-width="1"/>
+            <!-- Nose -->
+            <path d="M48,46 Q50,50 52,46" stroke="#D4A574" stroke-width="1" fill="none"/>
+            <!-- Mouth (slight smile) -->
+            <path d="M43,54 Q50,57 57,54" stroke="#A0522D" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
+        <div class="persp-name">Chinese Gov. Official</div>
+        <div class="persp-tap">tap to reveal</div>
+        <div class="persp-expand">
+          <div class="persp-expand-inner">
+            <strong>Think about:</strong>
+            Central planning and long-term strategy. Control of information as a resource. Rapid development — at what cost? How does "stability" justify restriction? What does "the people's interest" mean when the people don't choose?
+          </div>
+        </div>
+      </div>
+
+      <!-- Chinese Citizen -->
+      <div class="persp-card" onclick="togglePersp(this)">
+        <div class="persp-avatar">
+          <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- Casual clothing -->
+            <path d="M25,80 L20,120 L80,120 L75,80 Q62,74 50,72 Q38,74 25,80Z" fill="#5DADE2"/>
+            <!-- T-shirt collar -->
+            <path d="M42,72 Q50,78 58,72" stroke="#4A9AD4" stroke-width="1.5" fill="none"/>
+            <!-- Neck -->
+            <rect x="44" y="60" width="12" height="13" rx="4" fill="#F0D5A8"/>
+            <!-- Face -->
+            <ellipse cx="50" cy="45" rx="21" ry="21" fill="#F0D5A8"/>
+            <!-- Hair (casual, fringe) -->
+            <path d="M29,40 Q28,20 50,18 Q72,20 71,40 Q70,28 60,24 Q50,20 40,24 Q32,28 29,40Z" fill="#1C1C1C"/>
+            <path d="M32,36 Q38,28 48,30 Q42,34 38,38Z" fill="#1C1C1C"/>
+            <!-- Eyes -->
+            <path d="M38,44 Q42,42 46,44" stroke="#1C1C1C" stroke-width="1.8" fill="none"/>
+            <path d="M54,44 Q58,42 62,44" stroke="#1C1C1C" stroke-width="1.8" fill="none"/>
+            <circle cx="42" cy="45" r="1.5" fill="#1C1C1C"/>
+            <circle cx="58" cy="45" r="1.5" fill="#1C1C1C"/>
+            <!-- Nose -->
+            <path d="M48,48 Q50,52 52,48" stroke="#D4A574" stroke-width="1" fill="none"/>
+            <!-- Slight frown -->
+            <path d="M44,56 Q50,54 56,56" stroke="#A0522D" stroke-width="1.2" fill="none"/>
+            <!-- Phone in hand -->
+            <rect x="68" y="85" width="14" height="24" rx="2" fill="#2C3E50"/>
+            <rect x="69.5" y="87" width="11" height="18" rx="1" fill="#85C1E9"/>
+            <!-- X on phone screen (blocked) -->
+            <line x1="72" y1="92" x2="78" y2="100" stroke="#E74C3C" stroke-width="2"/>
+            <line x1="78" y1="92" x2="72" y2="100" stroke="#E74C3C" stroke-width="2"/>
+            <text x="70" y="108" fill="#FFF" font-size="4" font-family="sans-serif">blocked</text>
+          </svg>
+        </div>
+        <div class="persp-name">Chinese Citizen</div>
+        <div class="persp-tap">tap to reveal</div>
+        <div class="persp-expand">
+          <div class="persp-expand-inner">
+            <strong>Think about:</strong>
+            Daily life under state control — what's available and what isn't. Access to education, healthcare, housing vs. restrictions on speech and information. Economic opportunity within a controlled system. What does "freedom" mean when your basic needs are met but your choices are limited?
+          </div>
+        </div>
+      </div>
+
+      <!-- American Entrepreneur -->
+      <div class="persp-card" onclick="togglePersp(this)">
+        <div class="persp-avatar">
+          <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- Sharp suit -->
+            <path d="M25,78 L18,120 L82,120 L75,78 Q62,72 50,70 Q38,72 25,78Z" fill="#1C2833"/>
+            <!-- Lapels -->
+            <path d="M38,78 L50,92 L50,70 Z" fill="#2C3E50"/>
+            <path d="M62,78 L50,92 L50,70 Z" fill="#2C3E50"/>
+            <!-- White shirt -->
+            <path d="M44,70 L50,85 L56,70 Z" fill="#F5F5F5"/>
+            <!-- Blue tie -->
+            <path d="M48,76 L50,98 L52,76 Z" fill="#1A5276"/>
+            <!-- Neck -->
+            <rect x="44" y="58" width="12" height="13" rx="4" fill="#F5CBA7"/>
+            <!-- Face -->
+            <ellipse cx="50" cy="44" rx="21" ry="22" fill="#F5CBA7"/>
+            <!-- Hair (neat, brown) -->
+            <path d="M29,38 Q28,18 50,16 Q72,18 71,38 Q72,26 62,22 Q50,18 38,22 Q30,26 29,38Z" fill="#6E4B3A"/>
+            <!-- Confident eyes -->
+            <ellipse cx="40" cy="42" rx="4" ry="3" fill="white"/>
+            <ellipse cx="60" cy="42" rx="4" ry="3" fill="white"/>
+            <circle cx="41" cy="42" r="2" fill="#2C3E50"/>
+            <circle cx="61" cy="42" r="2" fill="#2C3E50"/>
+            <!-- Eyebrows (confident) -->
+            <path d="M34,37 Q40,34 46,37" stroke="#5D4037" stroke-width="1.5" fill="none"/>
+            <path d="M54,37 Q60,34 66,37" stroke="#5D4037" stroke-width="1.5" fill="none"/>
+            <!-- Nose -->
+            <path d="M48,44 Q50,50 52,44" stroke="#D4A574" stroke-width="1" fill="none"/>
+            <!-- Confident smile -->
+            <path d="M42,52 Q50,57 58,52" stroke="#A0522D" stroke-width="1.5" fill="none"/>
+            <!-- Wall St sign -->
+            <g transform="translate(70,92)">
+              <rect x="0" y="0" width="28" height="16" rx="1" fill="#2E7D32"/>
+              <text x="3" y="11" fill="white" font-size="6" font-weight="bold" font-family="sans-serif">WALL ST</text>
+              <rect x="12" y="16" width="3" height="10" fill="#795548"/>
+            </g>
+          </svg>
+        </div>
+        <div class="persp-name">American Entrepreneur</div>
+        <div class="persp-tap">tap to reveal</div>
+        <div class="persp-expand">
+          <div class="persp-expand-inner">
+            <strong>Think about:</strong>
+            Innovation, competition, risk-taking. Personal wealth vs. social good — where's the line? Regulation as obstacle or safeguard? "The market will sort it out" — will it? What happens to those who can't compete?
+          </div>
+        </div>
+      </div>
+
+      <!-- Environmental Activist -->
+      <div class="persp-card" onclick="togglePersp(this)">
+        <div class="persp-avatar">
+          <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- Plaid shirt -->
+            <path d="M25,78 L20,120 L80,120 L75,78 Q62,72 50,70 Q38,72 25,78Z" fill="#7B9E5D"/>
+            <!-- Plaid pattern -->
+            <line x1="30" y1="80" x2="25" y2="120" stroke="#5D7A3E" stroke-width="2" opacity="0.4"/>
+            <line x1="42" y1="75" x2="35" y2="120" stroke="#5D7A3E" stroke-width="2" opacity="0.4"/>
+            <line x1="55" y1="72" x2="52" y2="120" stroke="#5D7A3E" stroke-width="2" opacity="0.4"/>
+            <line x1="65" y1="75" x2="68" y2="120" stroke="#5D7A3E" stroke-width="2" opacity="0.4"/>
+            <line x1="22" y1="90" x2="78" y2="90" stroke="#5D7A3E" stroke-width="1.5" opacity="0.3"/>
+            <line x1="20" y1="105" x2="80" y2="105" stroke="#5D7A3E" stroke-width="1.5" opacity="0.3"/>
+            <!-- T-shirt underneath -->
+            <path d="M42,70 Q50,76 58,70" fill="#FFFFFF"/>
+            <!-- Neck -->
+            <rect x="44" y="58" width="12" height="13" rx="4" fill="#8D6E63"/>
+            <!-- Face -->
+            <ellipse cx="50" cy="44" rx="20" ry="20" fill="#8D6E63"/>
+            <!-- Hair (long, dark, natural) -->
+            <path d="M28,44 Q26,22 50,16 Q74,22 72,44 L70,38 Q68,24 50,20 Q32,24 30,38 Z" fill="#1C1C1C"/>
+            <path d="M28,44 Q26,52 28,62 Q30,55 32,50Z" fill="#1C1C1C"/>
+            <path d="M72,44 Q74,52 72,62 Q70,55 68,50Z" fill="#1C1C1C"/>
+            <!-- Glasses (round) -->
+            <circle cx="40" cy="43" r="8" stroke="#5D4037" stroke-width="1.5" fill="none"/>
+            <circle cx="60" cy="43" r="8" stroke="#5D4037" stroke-width="1.5" fill="none"/>
+            <line x1="48" y1="43" x2="52" y2="43" stroke="#5D4037" stroke-width="1"/>
+            <!-- Eyes -->
+            <circle cx="40" cy="43" r="1.5" fill="#1C1810"/>
+            <circle cx="60" cy="43" r="1.5" fill="#1C1810"/>
+            <!-- Nose -->
+            <path d="M48,46 Q50,50 52,46" stroke="#7D5A4A" stroke-width="1" fill="none"/>
+            <!-- Determined expression -->
+            <path d="M44,54 L56,54" stroke="#5D3A2A" stroke-width="1.2"/>
+            <!-- Earrings -->
+            <circle cx="29" cy="48" r="2" fill="#F1C40F"/>
+            <circle cx="71" cy="48" r="2" fill="#F1C40F"/>
+          </svg>
+        </div>
+        <div class="persp-name">Environmentalist (LEDC)</div>
+        <div class="persp-tap">tap to reveal</div>
+        <div class="persp-expand">
+          <div class="persp-expand-inner">
+            <strong>Think about:</strong>
+            Who bears the cost of development? Climate justice — should wealthy nations pay for their historical emissions? Growth vs. sustainability — can you have both? Global priorities vs. local survival. What does "progress" look like when your village is flooding?
+          </div>
+        </div>
+      </div>
+
+      <!-- Factory Owner -->
+      <div class="persp-card" onclick="togglePersp(this)">
+        <div class="persp-avatar">
+          <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- Fine Victorian coat -->
+            <path d="M25,78 L18,120 L82,120 L75,78 Q62,72 50,70 Q38,72 25,78Z" fill="#4A3728"/>
+            <!-- Vest -->
+            <path d="M38,78 L50,95 L62,78 Q58,72 50,70 Q42,72 38,78Z" fill="#8D6E63"/>
+            <!-- Watch chain -->
+            <path d="M42,82 Q46,88 50,85 Q54,88 58,82" stroke="#F1C40F" stroke-width="1" fill="none"/>
+            <circle cx="42" cy="82" r="2" fill="#F1C40F"/>
+            <!-- White shirt -->
+            <path d="M45,70 L50,80 L55,70 Z" fill="#F5F5F5"/>
+            <!-- Cravat -->
+            <path d="M45,74 L50,78 L55,74 L50,72 Z" fill="#7B241C"/>
+            <!-- Neck -->
+            <rect x="44" y="58" width="12" height="13" rx="4" fill="#F5CBA7"/>
+            <!-- Face (portly, rosy) -->
+            <ellipse cx="50" cy="44" rx="22" ry="22" fill="#F5CBA7"/>
+            <!-- Rosy cheeks -->
+            <circle cx="36" cy="50" r="5" fill="#F1948A" opacity="0.3"/>
+            <circle cx="64" cy="50" r="5" fill="#F1948A" opacity="0.3"/>
+            <!-- Top hat (shorter, Victorian) -->
+            <rect x="32" y="8" width="36" height="28" rx="3" fill="#1C1C1C"/>
+            <rect x="26" y="34" width="48" height="6" rx="2" fill="#1C1C1C"/>
+            <!-- Hat band -->
+            <rect x="32" y="28" width="36" height="5" fill="#4A3728"/>
+            <!-- Sideburns -->
+            <path d="M28,38 Q26,50 30,55 Q32,50 30,42Z" fill="#8B7355"/>
+            <path d="M72,38 Q74,50 70,55 Q68,50 70,42Z" fill="#8B7355"/>
+            <!-- Eyes (shrewd) -->
+            <ellipse cx="40" cy="42" rx="4" ry="3" fill="white"/>
+            <ellipse cx="60" cy="42" rx="4" ry="3" fill="white"/>
+            <circle cx="41" cy="42" r="2" fill="#2C3E50"/>
+            <circle cx="61" cy="42" r="2" fill="#2C3E50"/>
+            <!-- Bushy eyebrows -->
+            <path d="M34,37 Q40,34 46,38" stroke="#8B7355" stroke-width="2" fill="none"/>
+            <path d="M54,38 Q60,34 66,37" stroke="#8B7355" stroke-width="2" fill="none"/>
+            <!-- Nose -->
+            <path d="M47,44 Q45,50 48,53 Q50,55 52,53 Q55,50 53,44" fill="#E8B894"/>
+            <!-- Thin smile -->
+            <path d="M43,56 Q50,59 57,56" stroke="#A0522D" stroke-width="1.2" fill="none"/>
+            <!-- Monocle -->
+            <circle cx="60" cy="42" r="7" stroke="#F1C40F" stroke-width="1" fill="none"/>
+            <line x1="67" y1="42" x2="72" y2="55" stroke="#F1C40F" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <div class="persp-name">Factory Owner</div>
+        <div class="persp-era">19th Century · Connects to Week 4</div>
+        <div class="persp-tap">tap to reveal</div>
+        <div class="persp-expand">
+          <div class="persp-expand-inner">
+            <strong>Think about:</strong>
+            Profit, progress, "natural order." Resistance to regulation — "the market knows best." Cheap labour as a resource to be managed. The belief that industrial growth benefits everyone eventually. Would this person see their workers as partners or as costs?
+          </div>
+        </div>
+      </div>
+
+      <!-- Factory Worker -->
+      <div class="persp-card" onclick="togglePersp(this)">
+        <div class="persp-avatar">
+          <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- Worn, patched clothes -->
+            <path d="M25,78 L18,120 L82,120 L75,78 Q62,72 50,70 Q38,72 25,78Z" fill="#7D6B5D"/>
+            <!-- Patches -->
+            <rect x="28" y="95" width="12" height="10" rx="1" fill="#6B5B50" stroke="#5D4E44" stroke-width="0.5"/>
+            <rect x="62" y="100" width="10" height="12" rx="1" fill="#8B7D6F" stroke="#5D4E44" stroke-width="0.5"/>
+            <!-- Worn collar -->
+            <path d="M40,72 Q50,78 60,72" stroke="#6B5B50" stroke-width="1" fill="none"/>
+            <!-- Dirty undershirt -->
+            <path d="M44,70 Q50,75 56,70" fill="#C4B5A4"/>
+            <!-- Neck (dirty) -->
+            <rect x="44" y="58" width="12" height="13" rx="4" fill="#D4B896"/>
+            <!-- Smudges -->
+            <circle cx="46" cy="62" r="2" fill="#8B7355" opacity="0.3"/>
+            <!-- Face -->
+            <ellipse cx="50" cy="44" rx="20" ry="20" fill="#D4B896"/>
+            <!-- Dirt smudges on face -->
+            <ellipse cx="38" cy="48" rx="4" ry="2" fill="#8B7355" opacity="0.2" transform="rotate(-15 38 48)"/>
+            <ellipse cx="60" cy="38" rx="3" ry="2" fill="#8B7355" opacity="0.15"/>
+            <!-- Hair (messy, under cap) -->
+            <path d="M30,38 Q32,28 40,26 Q45,24 50,25" fill="#6E4B3A"/>
+            <path d="M70,38 Q68,28 60,26 Q55,24 50,25" fill="#6E4B3A"/>
+            <!-- Flat cap -->
+            <path d="M26,34 Q28,22 50,20 Q72,22 74,34 Q72,28 50,26 Q28,28 26,34Z" fill="#5D4037"/>
+            <path d="M22,36 Q24,32 50,30 Q76,32 78,36 Q76,34 50,32 Q24,34 22,36Z" fill="#4E342E"/>
+            <!-- Brim -->
+            <ellipse cx="50" cy="36" rx="30" ry="4" fill="#4E342E"/>
+            <!-- Tired eyes -->
+            <ellipse cx="40" cy="43" rx="3.5" ry="3" fill="white"/>
+            <ellipse cx="60" cy="43" rx="3.5" ry="3" fill="white"/>
+            <circle cx="40" cy="43.5" r="1.8" fill="#5D4037"/>
+            <circle cx="60" cy="43.5" r="1.8" fill="#5D4037"/>
+            <!-- Dark circles under eyes -->
+            <path d="M36,46 Q40,48 44,46" stroke="#A0887A" stroke-width="0.8" fill="none"/>
+            <path d="M56,46 Q60,48 64,46" stroke="#A0887A" stroke-width="0.8" fill="none"/>
+            <!-- Nose -->
+            <path d="M48,46 Q50,50 52,46" stroke="#B8956E" stroke-width="1" fill="none"/>
+            <!-- Grim expression -->
+            <path d="M44,55 Q50,53 56,55" stroke="#8B6A5A" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
+        <div class="persp-name">Factory Worker</div>
+        <div class="persp-era">19th Century · Connects to Week 4</div>
+        <div class="persp-tap">tap to reveal</div>
+        <div class="persp-expand">
+          <div class="persp-expand-inner">
+            <strong>Think about:</strong>
+            Survival — 14-hour days, dangerous conditions, children working. Exploitation and the desire for change. Collective action — what happens when workers organise? What does "fairness" mean when you have nothing? The gap between the factory owner's belief in "progress" and your lived experience of it.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout--remember">
+      <h4>💡 Remember</h4>
+      <p>Beliefs aren't just opinions — they're powerful tools that <strong>justify action</strong>. Systems aren't neutral — they <strong>reflect</strong> these beliefs. The goal isn't to decide who's "right" yet. It's to understand what each perspective <em>sees</em> and what it <em>misses</em>.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ DEBATE ═══ -->
+  <section id="debate">
+    <div class="section-label">The Debate</div>
+    <h2>Centralized control or individual freedom?</h2>
+    <div class="debate-banner">
+      <h3>Debate Question</h3>
+      <div class="debate-question">"Which system better manages resources for <em>long-term societal stability</em>: centralized control or individual freedom?"</div>
+    </div>
+    <h3>Debate preparation</h3>
+    <p>You will be assigned a side. Use your PCQ work and the content from this site to build your case.</p>
+    <div class="debate-prep">
+      <div class="prep-step"><div class="prep-number">1</div><div class="prep-content"><h4>Prepare 3 points with evidence</h4><p>Each point should connect a belief to a resource outcome. Use the country examples, your PCQ perspectives, or historical evidence from the Industrial Revolution.</p></div></div>
+      <div class="prep-step"><div class="prep-number">2</div><div class="prep-content"><h4>Anticipate 2 points from the other side</h4><p>Your PCQ work should help here — if you did a perspective from "the other side," you already know their strongest points.</p></div></div>
+      <div class="prep-step"><div class="prep-number">3</div><div class="prep-content"><h4>Think about how to refute them</h4><p>Don't just disagree — show why your system handles that specific challenge better. Use evidence, not just opinion.</p></div></div>
+    </div>
+    <h3>Debate structure</h3>
+    <div class="debate-structure">
+      <div class="debate-phase"><div class="debate-phase-icon">🎙️</div><div class="debate-phase-name">Opening</div><div class="debate-phase-detail">State your position</div></div>
+      <div class="debate-phase"><div class="debate-phase-icon">💬</div><div class="debate-phase-name">Arguments</div><div class="debate-phase-detail">Present your 3 points</div></div>
+      <div class="debate-phase"><div class="debate-phase-icon">⚔️</div><div class="debate-phase-name">Rebuttals</div><div class="debate-phase-detail">Respond to the other side</div></div>
+      <div class="debate-phase"><div class="debate-phase-icon">🏁</div><div class="debate-phase-name">Closing</div><div class="debate-phase-detail">Your strongest case</div></div>
+    </div>
+    <div class="callout callout--connect">
+      <h4>Connecting to your summative</h4>
+      <p>The debate practices a skill you'll need for your summative short story: making a <strong>convincing argument through narrative</strong>. The strongest debaters don't just state facts — they tell a story about how their system works.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ STORY FRAMING ═══ -->
+  <section id="story">
+    <div class="section-label">Story Framing</div>
+    <h2>Turn your argument into a story</h2>
+    <p>Take the debate side you found most compelling and frame it into a narrative. This practices the same skill you'll use for your summative.</p>
+
+    <h3>Required elements (minimum 6 parts)</h3>
+    <div class="story-elements">
+      <div class="story-element"><div class="story-element-content"><strong>Intro</strong><span>Define the ideology and its core belief about resources.</span></div></div>
+      <div class="story-element"><div class="story-element-content"><strong>Point 1: Resource Management</strong><span>Explain how this belief system manages resources — which ones, and how?</span></div></div>
+      <div class="story-element"><div class="story-element-content"><strong>Point 2: Example in Action</strong><span>Give a historical or contemporary example of this belief shaping a real turning point.</span></div></div>
+      <div class="story-element"><div class="story-element-content"><strong>Point 3: Future Prediction</strong><span>Predict a future outcome if this belief continues to guide resource decisions.</span></div></div>
+      <div class="story-element"><div class="story-element-content"><strong>Counterargument</strong><span>Present the opposing ideology's view. Can you refute it?</span></div></div>
+      <div class="story-element"><div class="story-element-content"><strong>Conclusion</strong><span>Argue why your chosen belief system leads to a better societal outcome.</span></div></div>
+    </div>
+
+    <h3>Choose your challenge level</h3>
+    <div class="level-cards">
+      <div class="level-card level-card--a"><span class="level-badge">LEVEL A</span><h4>Restate and persuade</h4><p>Restate your claim clearly. Add rhetorical or narrative flair — use emotional or persuasive language to engage your audience.</p></div>
+      <div class="level-card level-card--b"><span class="level-badge">LEVEL B</span><h4>Build a story</h4><p>Turn your claim into a story. Make sure to explicitly connect key moments to big themes like control, freedom, fairness, or stability.</p></div>
+      <div class="level-card level-card--c"><span class="level-badge">LEVEL C</span><h4>Analyse an existing story</h4><p>Use an existing real-world story (company ad, government policy, activist report). Analyse how it reflects your chosen belief system. Focus on how the story <em>works</em> — not just what it says.</p></div>
+    </div>
+
+    <div class="callout callout--connect">
+      <h4>Two pathways</h4>
+      <p><strong>New material:</strong> Use an ideological turning point from this week's content.</p>
+      <p style="margin-top:0.5rem"><strong>Deepen your storyboard:</strong> Apply an ideological lens to the turning point you already chose. What beliefs made it possible?</p>
+    </div>
+
+    <div class="callout callout--ai">
+      <h4>⚠️ A note about AI</h4>
+      <p>GenAI does not handle ideological debates well. It tends to give generic, "both sides" answers. Focus on researching real evidence. The strongest stories come from real examples, not AI summaries.</p>
+    </div>
+  </section>
+
+  <!-- ═══ RESEARCH LOG ═══ -->
+  <section>
+    <div class="divider"></div>
+    <div class="section-label">Research Log</div>
+    <h2>Add to your Research Log this week</h2>
+    <p>Find 1–2 sources that make a strong argument for capitalism OR communism's approach to resource management. For each source, record:</p>
+    <div style="margin:1rem 0;padding:1.25rem;background:var(--white);border:1px solid var(--border);border-radius:8px;">
+      <p style="font-size:0.92rem"><strong>What evidence do they use?</strong> Data? Historical examples? Emotional appeals?</p>
+      <p style="font-size:0.92rem;margin-top:0.5rem"><strong>What do they leave out?</strong> Whose perspective is missing?</p>
+      <p style="font-size:0.92rem;margin-top:0.5rem"><strong>How does this connect to your summative?</strong> Could this argument appear in your story?</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">Turning Points · MYP4 I&S · Week 6: Ideological Empires</footer>
+
+<script>
+function toggleCard(el) {
+  const wasActive = el.classList.contains('active');
+  document.querySelectorAll('.character-card').forEach(c => c.classList.remove('active'));
+  if (!wasActive) el.classList.add('active');
+}
+
+function toggleCountry(btn, code) {
+  const wasActive = btn.classList.contains('active');
+  // Close all
+  document.querySelectorAll('.country-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.country-detail').forEach(d => d.classList.remove('active'));
+  // Open if wasn't active
+  if (!wasActive) {
+    btn.classList.add('active');
+    const detail = document.getElementById('detail-' + code);
+    if (detail) {
+      detail.classList.add('active');
+      // Move detail after the clicked button's row
+      const row = document.getElementById('country-row');
+      // Find position to insert
+      const buttons = [...row.querySelectorAll('.country-btn')];
+      const idx = buttons.indexOf(btn);
+      // Insert after the row of buttons
+      row.parentNode.insertBefore(detail, row.nextSibling);
+    }
+  }
+}
+
+function togglePersp(el) {
+  const wasActive = el.classList.contains('active');
+  document.querySelectorAll('.persp-card').forEach(c => c.classList.remove('active'));
+  if (!wasActive) el.classList.add('active');
+}
+
+function selectBarometer(dot) {
+  const scale = dot.parentElement;
+  scale.querySelectorAll('.barometer-dot').forEach(d => d.classList.remove('selected'));
+  dot.classList.add('selected');
+}
+</script>
+
+</body>
+</html>
